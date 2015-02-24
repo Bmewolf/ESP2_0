@@ -83,3 +83,7 @@ MinSysEmbedProc/etc/fast_runtime.opt.virtex5
 ESP2_0.gise
 *.xml
 *.bit
+*.srp
+*.lso
+*.scr
+*.xdc
