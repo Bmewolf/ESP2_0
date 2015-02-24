@@ -1,0 +1,58 @@
+Net fpga_0_clk_1_sys_clk_pin TNM_NET = sys_clk_pin;
+TIMESPEC TS_sys_clk_pin = PERIOD sys_clk_pin 66666.7 kHz HIGH 50% INPUT_JITTER 60ps;
+Net 	fpga_0_clk_1_sys_clk_pin 		LOC=AF14	| 	IOSTANDARD = LVCMOS33;
+Net 	fpga_0_rst_1_sys_rst_pin TIG;
+Net 	fpga_0_rst_1_sys_rst_pin 		LOC=AF9	| 	IOSTANDARD = LVCMOS33;
+
+# Net 	xps_uartlite_0_RX_pin 			LOC=K11	| 	IOSTANDARD = LVCMOS33;
+# Net 	xps_uartlite_0_TX_pin 			LOC=J11	| 	IOSTANDARD = LVCMOS33;
+
+
+Net 	xps_uartlite_0_RX_pin 			LOC=AE21	| 	IOSTANDARD = LVCMOS33;
+Net 	xps_uartlite_0_TX_pin 			LOC=AD21	| 	IOSTANDARD = LVCMOS33;
+Net 	data_input_tl_0_miso_all_pin<0>		LOC=B2	| 	IOSTANDARD = LVCMOS33;
+Net 	data_input_tl_0_miso_all_pin<1>		LOC=E4	| 	IOSTANDARD = LVCMOS33;
+Net 	data_input_tl_0_miso_all_pin<2>		LOC=J4 	| 	IOSTANDARD = LVCMOS33;
+Net 	data_input_tl_0_miso_all_pin<3>		LOC=L4	| 	IOSTANDARD = LVCMOS33;
+Net 	data_input_tl_0_miso_all_pin<4>		LOC=AD2	| 	IOSTANDARD = LVCMOS33;
+Net 	data_input_tl_0_miso_all_pin<5>		LOC=AB1	| 	IOSTANDARD = LVCMOS33;
+
+Net	data_input_tl_0_AD7982_convert_all_pin<0>	LOC=D3	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_convert_all_pin<1>	LOC=F2	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_convert_all_pin<2>	LOC=K2	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_convert_all_pin<3>	LOC=L3	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_convert_all_pin<4>	LOC=AC1	|	IOSTANDARD = LVCMOS33;
+# Net	data_input_tl_0_AD7982_convert_all_pin<5>	LOC=AA3	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_convert_all_pin<5>	LOC=B19	|	IOSTANDARD = LVCMOS33; # for debug J35 pin 3
+
+Net	data_input_tl_0_AD7982_DSI_all_pin<0>	LOC=B1	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_DSI_all_pin<1>	LOC=F3	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_DSI_all_pin<2>	LOC=H1	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_DSI_all_pin<3>	LOC=K4	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_DSI_all_pin<4>	LOC=AD1	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_AD7982_DSI_all_pin<5>	LOC=AC3	|	IOSTANDARD = LVCMOS33;
+
+Net 	data_input_tl_0_SClock_out_pin	LOC=E1	|	IOSTANDARD = LVCMOS33;
+
+Net	data_input_tl_0_jfrc16_sel_pin<0>	LOC=B23	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_jfrc16_sel_pin<1>	LOC=A18	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_jfrc16_sel_pin<2>	LOC=C18	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_jfrc16_sel_pin<3>	LOC=A22	|	IOSTANDARD = LVCMOS33;
+
+Net	data_input_tl_0_jfrc_convert_pin		LOC=D8	|	IOSTANDARD = LVCMOS33;
+
+Net	data_input_tl_0_SReady_pin				LOC=E12	|	IOSTANDARD = LVCMOS33;
+
+// D to A Converter 1  (2 channels of analog out, 1 set of programming pins, U33 on schematic)
+Net	dtoa_converter_tl_0_dtoa_select_pin<0>	LOC=AE23	|	IOSTANDARD = LVCMOS33;
+Net	dtoa_converter_tl_0_dtoa_clock_pin<0>	LOC=AD22	|	IOSTANDARD = LVCMOS33;
+Net	dtoa_converter_tl_0_dtoa_din_pin<0>		LOC=AC21	|	IOSTANDARD = LVCMOS33;
+
+// D to A Converter 2  (2 channels of analog out, 1 set of programming pins, U36 on schematic)
+Net	dtoa_converter_tl_0_dtoa_clock_pin<1>	LOC=AF23	|	IOSTANDARD = LVCMOS33;
+Net	dtoa_converter_tl_0_dtoa_select_pin<1>	LOC=AF19	|	IOSTANDARD = LVCMOS33;	
+Net	dtoa_converter_tl_0_dtoa_din_pin<1>		LOC=AE19	|	IOSTANDARD = LVCMOS33;
+
+//Net	espsysgen1_plbw_0_hs32_pin		LOC=A15	|	IOSTANDARD = LVCMOS33; 		// debug
+//Net	espsysgen1_plbw_0_control16_pin	LOC=F12	|	IOSTANDARD = LVCMOS33; // debug
+Net	rtephyseng_plbw_0_new_sample_available_pin LOC=F12 |	IOSTANDARD = LVCMOS33; // debug J35 pin 12

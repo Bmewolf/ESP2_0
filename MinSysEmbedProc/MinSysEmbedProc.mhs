@@ -1,0 +1,210 @@
+
+# ##############################################################################
+# Created by Base System Builder Wizard for Xilinx EDK 14.7 Build EDK_P.20131013
+# Wed Jul 09 11:38:56 2014
+# Target Board:  Custom
+# Family:    spartan3a
+# Device:    xc3s1400an
+# Package:   fgg676
+# Speed Grade:  -5
+# Processor number: 1
+# Processor 1: microblaze_0
+# System clock frequency: 66.7
+# Debug Interface: On-Chip HW Debug Module
+# ##############################################################################
+ PARAMETER VERSION = 2.1.0
+
+
+ PORT fpga_0_clk_1_sys_clk_pin = CLK_S, DIR = I, SIGIS = CLK, CLK_FREQ = 66666667
+ PORT fpga_0_rst_1_sys_rst_pin = sys_rst_s, DIR = I, SIGIS = RST, RST_POLARITY = 0
+ PORT xps_uartlite_0_RX_pin = net_xps_uartlite_0_RX_pin, DIR = I
+ PORT xps_uartlite_0_TX_pin = xps_uartlite_0_TX, DIR = O
+ PORT dtoa_converter_tl_0_dtoa_select_pin = dtoa_converter_tl_0_dtoa_select, DIR = O, VEC = [1:0]
+ PORT dtoa_converter_tl_0_dtoa_clock_pin = dtoa_converter_tl_0_dtoa_clock, DIR = O, VEC = [1:0]
+ PORT dtoa_converter_tl_0_dtoa_din_pin = dtoa_converter_tl_0_dtoa_din, DIR = O, VEC = [1:0]
+ PORT data_input_tl_0_miso_all_pin = net_data_input_tl_0_miso_all_pin, DIR = I, VEC = [5:0]
+ PORT data_input_tl_0_jfrc_convert_pin = data_input_tl_0_jfrc_convert, DIR = I
+ PORT data_input_tl_0_jfrc16_sel_pin = data_input_tl_0_jfrc16_sel, DIR = I, VEC = [3:0]
+ PORT data_input_tl_0_JFRC32RESET_NOT_pin = data_input_tl_0_JFRC32RESET_NOT, DIR = I
+ PORT data_input_tl_0_SReady_pin = data_input_tl_0_SReady, DIR = O
+ PORT data_input_tl_0_SClock_out_pin = data_input_tl_0_SClock_out, DIR = O
+ PORT data_input_tl_0_AD7982_convert_all_pin = data_input_tl_0_AD7982_convert_all, DIR = O, VEC = [5:0]
+ PORT data_input_tl_0_AD7982_DSI_all_pin = data_input_tl_0_AD7982_DSI_all, DIR = O, VEC = [5:0]
+ PORT rtephyseng_plbw_0_eng_reset_pin = rtephyseng_plbw_0_eng_reset, DIR = O
+ PORT rtephyseng_plbw_0_new_sample_available_pin = rtephyseng_plbw_0_new_sample_available, DIR = O
+ PORT rtephyseng_plbw_0_spare_pin = rtephyseng_plbw_0_spare, DIR = O, VEC = [0:9]
+
+
+BEGIN microblaze
+ PARAMETER INSTANCE = microblaze_0
+ PARAMETER C_AREA_OPTIMIZED = 1
+ PARAMETER C_USE_BARREL = 1
+ PARAMETER C_DEBUG_ENABLED = 1
+ PARAMETER HW_VER = 8.50.c
+ BUS_INTERFACE DLMB = dlmb
+ BUS_INTERFACE ILMB = ilmb
+ BUS_INTERFACE DPLB = mb_plb
+ BUS_INTERFACE IPLB = mb_plb
+ BUS_INTERFACE DEBUG = microblaze_0_mdm_bus
+ PORT MB_RESET = mb_reset
+END
+
+BEGIN plb_v46
+ PARAMETER INSTANCE = mb_plb
+ PARAMETER HW_VER = 1.05.a
+ PORT PLB_Clk = clk_66_6667MHz
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = ilmb
+ PARAMETER HW_VER = 2.00.b
+ PORT LMB_Clk = clk_66_6667MHz
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_v10
+ PARAMETER INSTANCE = dlmb
+ PARAMETER HW_VER = 2.00.b
+ PORT LMB_Clk = clk_66_6667MHz
+ PORT SYS_Rst = sys_bus_reset
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = dlmb_cntlr
+ PARAMETER HW_VER = 3.10.c
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00003fff
+ BUS_INTERFACE SLMB = dlmb
+ BUS_INTERFACE BRAM_PORT = dlmb_port
+END
+
+BEGIN lmb_bram_if_cntlr
+ PARAMETER INSTANCE = ilmb_cntlr
+ PARAMETER HW_VER = 3.10.c
+ PARAMETER C_BASEADDR = 0x00000000
+ PARAMETER C_HIGHADDR = 0x00003fff
+ BUS_INTERFACE SLMB = ilmb
+ BUS_INTERFACE BRAM_PORT = ilmb_port
+END
+
+BEGIN bram_block
+ PARAMETER INSTANCE = lmb_bram
+ PARAMETER HW_VER = 1.00.a
+ BUS_INTERFACE PORTA = ilmb_port
+ BUS_INTERFACE PORTB = dlmb_port
+END
+
+BEGIN clock_generator
+ PARAMETER INSTANCE = clock_generator_0
+ PARAMETER C_CLKIN_FREQ = 66666667
+ PARAMETER C_CLKOUT0_FREQ = 90000000
+ PARAMETER C_CLKOUT0_PHASE = 0
+ PARAMETER C_CLKOUT0_GROUP = NONE
+ PARAMETER C_CLKOUT0_BUF = TRUE
+ PARAMETER C_EXT_RESET_HIGH = 0
+ PARAMETER HW_VER = 4.03.a
+ PARAMETER C_CLKOUT1_FREQ = 20000000
+ PARAMETER C_CLKOUT1_PHASE = 0
+ PARAMETER C_CLKOUT1_GROUP = NONE
+ PARAMETER C_CLKOUT1_BUF = TRUE
+ PORT CLKOUT0 = clk_66_6667MHz
+ PORT RST = sys_rst_s
+ PORT LOCKED = Dcm_all_locked
+ PORT CLKOUT1 = clock_generator_0_CLKOUT1
+ PORT CLKIN = CLK_S
+END
+
+BEGIN mdm
+ PARAMETER INSTANCE = mdm_0
+ PARAMETER C_MB_DBG_PORTS = 1
+ PARAMETER C_USE_UART = 1
+ PARAMETER HW_VER = 2.10.a
+ PARAMETER C_BASEADDR = 0x84400000
+ PARAMETER C_HIGHADDR = 0x8440ffff
+ BUS_INTERFACE SPLB = mb_plb
+ BUS_INTERFACE MBDEBUG_0 = microblaze_0_mdm_bus
+ PORT Debug_SYS_Rst = Debug_SYS_Rst
+END
+
+BEGIN proc_sys_reset
+ PARAMETER INSTANCE = proc_sys_reset_0
+ PARAMETER C_EXT_RESET_HIGH = 0
+ PARAMETER HW_VER = 3.00.a
+ PORT Slowest_sync_clk = CLK_S
+ PORT Ext_Reset_In = sys_rst_s
+ PORT MB_Debug_Sys_Rst = Debug_SYS_Rst
+ PORT Dcm_locked = Dcm_all_locked
+ PORT MB_Reset = mb_reset
+ PORT Bus_Struct_Reset = sys_bus_reset
+ PORT Aux_Reset_In = net_gnd
+ PORT Peripheral_Reset = proc_sys_reset_0_Peripheral_Reset
+END
+
+BEGIN xps_uartlite
+ PARAMETER INSTANCE = xps_uartlite_0
+ PARAMETER HW_VER = 1.02.a
+ PARAMETER C_USE_PARITY = 0
+ PARAMETER C_BASEADDR = 0x84000000
+ PARAMETER C_HIGHADDR = 0x8400ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT RX = net_xps_uartlite_0_RX_pin
+ PORT TX = xps_uartlite_0_TX
+END
+
+BEGIN dtoa_converter_tl
+ PARAMETER INSTANCE = dtoa_converter_tl_0
+ PARAMETER HW_VER = 2.01.c
+ PORT slow_clk = clock_generator_0_CLKOUT1
+ PORT dtoa_select = dtoa_converter_tl_0_dtoa_select
+ PORT dtoa_clock = dtoa_converter_tl_0_dtoa_clock
+ PORT dtoa_din = dtoa_converter_tl_0_dtoa_din
+ PORT rst = proc_sys_reset_0_Peripheral_Reset
+ PORT dtoa_data0 = rtephyseng_plbw_0_dtoa0_data_rega
+ PORT dtoa_data1 = rtephyseng_plbw_0_dtoa0_data_regb
+ PORT dtoa_data2 = rtephyseng_plbw_0_dtoa1_data_rega
+ PORT dtoa_data3 = rtephyseng_plbw_0_dtoa1_data_regb
+ PORT dtoa_start = rtephyseng_plbw_0_dtoa_start
+END
+
+BEGIN data_input_tl
+ PARAMETER INSTANCE = data_input_tl_0
+ PARAMETER HW_VER = 2.00.d
+ PORT SPLB_Clk = clk_66_6667MHz
+ PORT SPLB_Rst = proc_sys_reset_0_Peripheral_Reset
+ PORT miso_all = net_data_input_tl_0_miso_all_pin
+ PORT jfrc_convert = data_input_tl_0_jfrc_convert
+ PORT jfrc16_sel = data_input_tl_0_jfrc16_sel
+ PORT JFRC32RESET_NOT = data_input_tl_0_JFRC32RESET_NOT
+ PORT SReady = data_input_tl_0_SReady
+ PORT SClock_out = data_input_tl_0_SClock_out
+ PORT AD7982_convert_all = data_input_tl_0_AD7982_convert_all
+ PORT AD7982_DSI_all = data_input_tl_0_AD7982_DSI_all
+ PORT Port_A_Address = data_input_tl_0_Port_A_Address
+ PORT AtoD_data_bus = data_input_tl_0_AtoD_data_bus
+ PORT mem_wr = data_input_tl_0_mem_wr
+ PORT Buffer_0_Fill = data_input_tl_0_Buffer_0_Fill
+ PORT HS32 = rtephyseng_plbw_0_hs32
+END
+
+BEGIN rtephyseng_plbw
+ PARAMETER INSTANCE = rtephyseng_plbw_0
+ PARAMETER HW_VER = 1.00.c
+ PARAMETER C_BASEADDR = 0xc3800000
+ PARAMETER C_HIGHADDR = 0xc380ffff
+ BUS_INTERFACE SPLB = mb_plb
+ PORT atod_datamem_addr = data_input_tl_0_Port_A_Address
+ PORT atod_datamem_data = data_input_tl_0_AtoD_data_bus
+ PORT atod_datamem_we = data_input_tl_0_mem_wr
+ PORT buffer_0_fill = data_input_tl_0_Buffer_0_Fill
+ PORT dtoa0_data_rega = rtephyseng_plbw_0_dtoa0_data_rega
+ PORT dtoa0_data_regb = rtephyseng_plbw_0_dtoa0_data_regb
+ PORT dtoa1_data_rega = rtephyseng_plbw_0_dtoa1_data_rega
+ PORT dtoa1_data_regb = rtephyseng_plbw_0_dtoa1_data_regb
+ PORT dtoa_start = rtephyseng_plbw_0_dtoa_start
+ PORT eng_reset = rtephyseng_plbw_0_eng_reset
+ PORT hs32 = rtephyseng_plbw_0_hs32
+ PORT new_sample_available = rtephyseng_plbw_0_new_sample_available
+ PORT spare = rtephyseng_plbw_0_spare
+END
+
