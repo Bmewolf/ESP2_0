@@ -32,7 +32,6 @@
  PORT data_input_tl_0_AD7982_DSI_all_pin = data_input_tl_0_AD7982_DSI_all, DIR = O, VEC = [5:0]
  PORT rtephyseng_plbw_0_eng_reset_pin = rtephyseng_plbw_0_eng_reset, DIR = O
  PORT rtephyseng_plbw_0_new_sample_available_pin = rtephyseng_plbw_0_new_sample_available, DIR = O
- PORT rtephyseng_plbw_0_spare_pin = rtephyseng_plbw_0_spare, DIR = O, VEC = [0:9]
 
 
 BEGIN microblaze
@@ -160,11 +159,11 @@ BEGIN dtoa_converter_tl
  PORT dtoa_clock = dtoa_converter_tl_0_dtoa_clock
  PORT dtoa_din = dtoa_converter_tl_0_dtoa_din
  PORT rst = proc_sys_reset_0_Peripheral_Reset
- PORT dtoa_data0 = rtephyseng_plbw_0_dtoa0_data_rega
  PORT dtoa_data1 = rtephyseng_plbw_0_dtoa0_data_regb
  PORT dtoa_data2 = rtephyseng_plbw_0_dtoa1_data_rega
  PORT dtoa_data3 = rtephyseng_plbw_0_dtoa1_data_regb
  PORT dtoa_start = rtephyseng_plbw_0_dtoa_start
+ PORT dtoa_data0 = rtephyseng_plbw_0_dtoa0_data_rega
 END
 
 BEGIN data_input_tl
@@ -189,7 +188,7 @@ END
 
 BEGIN rtephyseng_plbw
  PARAMETER INSTANCE = rtephyseng_plbw_0
- PARAMETER HW_VER = 1.00.c
+ PARAMETER HW_VER = 1.01.c
  PARAMETER C_BASEADDR = 0xc3800000
  PARAMETER C_HIGHADDR = 0xc380ffff
  BUS_INTERFACE SPLB = mb_plb
@@ -205,6 +204,5 @@ BEGIN rtephyseng_plbw
  PORT eng_reset = rtephyseng_plbw_0_eng_reset
  PORT hs32 = rtephyseng_plbw_0_hs32
  PORT new_sample_available = rtephyseng_plbw_0_new_sample_available
- PORT spare = rtephyseng_plbw_0_spare
 END
 

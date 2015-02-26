@@ -1,4 +1,4 @@
-// File: C:\Users\pdw\ISE_Projects\ESP2_0\MinSysEmbedProc\MinSysEmbedProc_stub.bmm
+// File: C:\Users\pdw\Documents\GitHub\ESP2_0\MinSysEmbedProc\MinSysEmbedProc_stub.bmm
 
 ADDRESS_MAP microblaze_0 MICROBLAZE 100
 	ADDRESS_SPACE lmb_bram_combined COMBINED [0x00000000:0x00003fff]

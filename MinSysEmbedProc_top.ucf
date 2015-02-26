@@ -4,7 +4,7 @@ Net 	fpga_0_clk_1_sys_clk_pin 		LOC=AF14	| 	IOSTANDARD = LVCMOS33;
 Net 	fpga_0_rst_1_sys_rst_pin TIG;
 Net 	fpga_0_rst_1_sys_rst_pin 		LOC=AF9	| 	IOSTANDARD = LVCMOS33;
 
-# Net 	xps_uartlite_0_RX_pin 			LOC=K11	| 	IOSTANDARD = LVCMOS33;
+# Net(old)xps_uartlite_0_RX_pin 			LOC=K11	| 	IOSTANDARD = LVCMOS33;
 # Net 	xps_uartlite_0_TX_pin 			LOC=J11	| 	IOSTANDARD = LVCMOS33;
 
 

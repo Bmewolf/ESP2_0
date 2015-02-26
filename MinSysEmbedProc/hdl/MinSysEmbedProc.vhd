@@ -25,8 +25,7 @@ entity MinSysEmbedProc is
     data_input_tl_0_AD7982_convert_all_pin : out std_logic_vector(5 downto 0);
     data_input_tl_0_AD7982_DSI_all_pin : out std_logic_vector(5 downto 0);
     rtephyseng_plbw_0_eng_reset_pin : out std_logic;
-    rtephyseng_plbw_0_new_sample_available_pin : out std_logic;
-    rtephyseng_plbw_0_spare_pin : out std_logic_vector(0 to 9)
+    rtephyseng_plbw_0_new_sample_available_pin : out std_logic
   );
 end MinSysEmbedProc;
 
@@ -1804,7 +1803,6 @@ architecture STRUCTURE of MinSysEmbedProc is
   signal rtephyseng_plbw_0_eng_reset : std_logic;
   signal rtephyseng_plbw_0_hs32 : std_logic;
   signal rtephyseng_plbw_0_new_sample_available : std_logic;
-  signal rtephyseng_plbw_0_spare : std_logic_vector(0 to 9);
   signal sys_bus_reset : std_logic_vector(0 to 0);
   signal sys_rst_s : std_logic;
   signal xps_uartlite_0_TX : std_logic;
@@ -1846,7 +1844,6 @@ begin
   data_input_tl_0_AD7982_DSI_all_pin <= data_input_tl_0_AD7982_DSI_all;
   rtephyseng_plbw_0_eng_reset_pin <= rtephyseng_plbw_0_eng_reset;
   rtephyseng_plbw_0_new_sample_available_pin <= rtephyseng_plbw_0_new_sample_available;
-  rtephyseng_plbw_0_spare_pin <= rtephyseng_plbw_0_spare;
   mb_plb_Sl_MRdErr(4 to 5) <= B"00";
   mb_plb_Sl_MWrErr(4 to 5) <= B"00";
   mb_plb_Sl_MBusy(4 to 5) <= B"00";
@@ -3441,7 +3438,7 @@ begin
       sl_wait => mb_plb_Sl_wait(2),
       sl_wrcomp => mb_plb_Sl_wrComp(2),
       sl_wrdack => mb_plb_Sl_wrDAck(2),
-      spare => rtephyseng_plbw_0_spare
+      spare => open
     );
 
 end architecture STRUCTURE;

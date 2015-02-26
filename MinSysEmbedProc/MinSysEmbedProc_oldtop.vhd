@@ -25,7 +25,8 @@ entity MinSysEmbedProc_top is
     data_input_tl_0_AD7982_convert_all_pin : out std_logic_vector(5 downto 0);
     data_input_tl_0_AD7982_DSI_all_pin : out std_logic_vector(5 downto 0);
     rtephyseng_plbw_0_eng_reset_pin : out std_logic;
-    rtephyseng_plbw_0_new_sample_available_pin : out std_logic
+    rtephyseng_plbw_0_new_sample_available_pin : out std_logic;
+    rtephyseng_plbw_0_spare_pin : out std_logic_vector(0 to 9)
   );
 end MinSysEmbedProc_top;
 
@@ -49,7 +50,8 @@ architecture STRUCTURE of MinSysEmbedProc_top is
       data_input_tl_0_AD7982_convert_all_pin : out std_logic_vector(5 downto 0);
       data_input_tl_0_AD7982_DSI_all_pin : out std_logic_vector(5 downto 0);
       rtephyseng_plbw_0_eng_reset_pin : out std_logic;
-      rtephyseng_plbw_0_new_sample_available_pin : out std_logic
+      rtephyseng_plbw_0_new_sample_available_pin : out std_logic;
+      rtephyseng_plbw_0_spare_pin : out std_logic_vector(0 to 9)
     );
   end component;
 
@@ -76,7 +78,8 @@ begin
       data_input_tl_0_AD7982_convert_all_pin => data_input_tl_0_AD7982_convert_all_pin,
       data_input_tl_0_AD7982_DSI_all_pin => data_input_tl_0_AD7982_DSI_all_pin,
       rtephyseng_plbw_0_eng_reset_pin => rtephyseng_plbw_0_eng_reset_pin,
-      rtephyseng_plbw_0_new_sample_available_pin => rtephyseng_plbw_0_new_sample_available_pin
+      rtephyseng_plbw_0_new_sample_available_pin => rtephyseng_plbw_0_new_sample_available_pin,
+      rtephyseng_plbw_0_spare_pin => rtephyseng_plbw_0_spare_pin
     );
 
 end architecture STRUCTURE;
