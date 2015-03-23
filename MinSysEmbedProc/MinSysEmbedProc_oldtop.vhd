@@ -24,9 +24,9 @@ entity MinSysEmbedProc_top is
     data_input_tl_0_SClock_out_pin : out std_logic;
     data_input_tl_0_AD7982_convert_all_pin : out std_logic_vector(5 downto 0);
     data_input_tl_0_AD7982_DSI_all_pin : out std_logic_vector(5 downto 0);
-    rtephyseng_plbw_0_eng_reset_pin : out std_logic;
-    rtephyseng_plbw_0_new_sample_available_pin : out std_logic;
-    rtephyseng_plbw_0_spare_pin : out std_logic_vector(0 to 9)
+    data_input_tl_0_Buffer_0_Fill_pin : out std_logic;
+    rtephyseng_plbw_0_buffer_0_fill_pin : in std_logic;
+    rtephyseng_plbw_0_new_sample_available_pin : out std_logic
   );
 end MinSysEmbedProc_top;
 
@@ -49,9 +49,9 @@ architecture STRUCTURE of MinSysEmbedProc_top is
       data_input_tl_0_SClock_out_pin : out std_logic;
       data_input_tl_0_AD7982_convert_all_pin : out std_logic_vector(5 downto 0);
       data_input_tl_0_AD7982_DSI_all_pin : out std_logic_vector(5 downto 0);
-      rtephyseng_plbw_0_eng_reset_pin : out std_logic;
-      rtephyseng_plbw_0_new_sample_available_pin : out std_logic;
-      rtephyseng_plbw_0_spare_pin : out std_logic_vector(0 to 9)
+      data_input_tl_0_Buffer_0_Fill_pin : out std_logic;
+      rtephyseng_plbw_0_buffer_0_fill_pin : in std_logic;
+      rtephyseng_plbw_0_new_sample_available_pin : out std_logic
     );
   end component;
 
@@ -77,9 +77,9 @@ begin
       data_input_tl_0_SClock_out_pin => data_input_tl_0_SClock_out_pin,
       data_input_tl_0_AD7982_convert_all_pin => data_input_tl_0_AD7982_convert_all_pin,
       data_input_tl_0_AD7982_DSI_all_pin => data_input_tl_0_AD7982_DSI_all_pin,
-      rtephyseng_plbw_0_eng_reset_pin => rtephyseng_plbw_0_eng_reset_pin,
-      rtephyseng_plbw_0_new_sample_available_pin => rtephyseng_plbw_0_new_sample_available_pin,
-      rtephyseng_plbw_0_spare_pin => rtephyseng_plbw_0_spare_pin
+      data_input_tl_0_Buffer_0_Fill_pin => data_input_tl_0_Buffer_0_Fill_pin,
+      rtephyseng_plbw_0_buffer_0_fill_pin => rtephyseng_plbw_0_buffer_0_fill_pin,
+      rtephyseng_plbw_0_new_sample_available_pin => rtephyseng_plbw_0_new_sample_available_pin
     );
 
 end architecture STRUCTURE;

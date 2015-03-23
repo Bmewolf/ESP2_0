@@ -30,8 +30,10 @@
  PORT data_input_tl_0_SClock_out_pin = data_input_tl_0_SClock_out, DIR = O
  PORT data_input_tl_0_AD7982_convert_all_pin = data_input_tl_0_AD7982_convert_all, DIR = O, VEC = [5:0]
  PORT data_input_tl_0_AD7982_DSI_all_pin = data_input_tl_0_AD7982_DSI_all, DIR = O, VEC = [5:0]
- PORT rtephyseng_plbw_0_eng_reset_pin = rtephyseng_plbw_0_eng_reset, DIR = O
+ PORT data_input_tl_0_Buffer_0_Fill_pin = data_input_tl_0_Buffer_0_Fill, DIR = O
+ PORT rtephyseng_plbw_0_buffer_0_fill_pin = net_rtephyseng_plbw_0_buffer_0_fill_pin, DIR = I
  PORT rtephyseng_plbw_0_new_sample_available_pin = rtephyseng_plbw_0_new_sample_available, DIR = O
+ PORT rtephyseng_plbw_0_control16_pin = rtephyseng_plbw_0_control16, DIR = O
 
 
 BEGIN microblaze
@@ -73,7 +75,7 @@ BEGIN lmb_bram_if_cntlr
  PARAMETER INSTANCE = dlmb_cntlr
  PARAMETER HW_VER = 3.10.c
  PARAMETER C_BASEADDR = 0x00000000
- PARAMETER C_HIGHADDR = 0x00003fff
+ PARAMETER C_HIGHADDR = 0x00007fff
  BUS_INTERFACE SLMB = dlmb
  BUS_INTERFACE BRAM_PORT = dlmb_port
 END
@@ -82,7 +84,7 @@ BEGIN lmb_bram_if_cntlr
  PARAMETER INSTANCE = ilmb_cntlr
  PARAMETER HW_VER = 3.10.c
  PARAMETER C_BASEADDR = 0x00000000
- PARAMETER C_HIGHADDR = 0x00003fff
+ PARAMETER C_HIGHADDR = 0x00007fff
  BUS_INTERFACE SLMB = ilmb
  BUS_INTERFACE BRAM_PORT = ilmb_port
 END
@@ -159,11 +161,11 @@ BEGIN dtoa_converter_tl
  PORT dtoa_clock = dtoa_converter_tl_0_dtoa_clock
  PORT dtoa_din = dtoa_converter_tl_0_dtoa_din
  PORT rst = proc_sys_reset_0_Peripheral_Reset
+ PORT dtoa_data0 = rtephyseng_plbw_0_dtoa0_data_rega
  PORT dtoa_data1 = rtephyseng_plbw_0_dtoa0_data_regb
  PORT dtoa_data2 = rtephyseng_plbw_0_dtoa1_data_rega
  PORT dtoa_data3 = rtephyseng_plbw_0_dtoa1_data_regb
  PORT dtoa_start = rtephyseng_plbw_0_dtoa_start
- PORT dtoa_data0 = rtephyseng_plbw_0_dtoa0_data_rega
 END
 
 BEGIN data_input_tl
@@ -179,16 +181,16 @@ BEGIN data_input_tl
  PORT SClock_out = data_input_tl_0_SClock_out
  PORT AD7982_convert_all = data_input_tl_0_AD7982_convert_all
  PORT AD7982_DSI_all = data_input_tl_0_AD7982_DSI_all
+ PORT Buffer_0_Fill = data_input_tl_0_Buffer_0_Fill
  PORT Port_A_Address = data_input_tl_0_Port_A_Address
  PORT AtoD_data_bus = data_input_tl_0_AtoD_data_bus
  PORT mem_wr = data_input_tl_0_mem_wr
- PORT Buffer_0_Fill = data_input_tl_0_Buffer_0_Fill
  PORT HS32 = rtephyseng_plbw_0_hs32
 END
 
 BEGIN rtephyseng_plbw
  PARAMETER INSTANCE = rtephyseng_plbw_0
- PARAMETER HW_VER = 1.01.c
+ PARAMETER HW_VER = 2.00.a
  PARAMETER C_BASEADDR = 0xc3800000
  PARAMETER C_HIGHADDR = 0xc380ffff
  BUS_INTERFACE SPLB = mb_plb
@@ -201,8 +203,8 @@ BEGIN rtephyseng_plbw
  PORT dtoa1_data_rega = rtephyseng_plbw_0_dtoa1_data_rega
  PORT dtoa1_data_regb = rtephyseng_plbw_0_dtoa1_data_regb
  PORT dtoa_start = rtephyseng_plbw_0_dtoa_start
- PORT eng_reset = rtephyseng_plbw_0_eng_reset
  PORT hs32 = rtephyseng_plbw_0_hs32
  PORT new_sample_available = rtephyseng_plbw_0_new_sample_available
+ PORT control16 = rtephyseng_plbw_0_control16
 END
 

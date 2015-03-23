@@ -60,30 +60,35 @@ DEFAULT_SIM_SCRIPT = $(BEHAVIORAL_SIM_SCRIPT)
 SIMGEN_OPTIONS = -p $(DEVICE) -lang $(XPS_HDL_LANG) -intstyle $(INTSTYLE) $(SEARCHPATHOPT) $(BRAMINIT_ELF_SIM_FILE_ARGS) -msg __xps/ise/xmsgprops.lst -s isim -X C:/Users/pdw/Documents/GitHub/ESP2_0/MinSysEmbedProc/
 
 
-CORE_STATE_DEVELOPMENT_FILES = pcores/rtephyseng_plbw_v1_01_c/netlist/xlpersistentdff.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/mult_11_2_eb93f59d418f9076.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/mult_11_2_22d5399536538cd3.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/cntr_11_0_4c9ff32156a8ea89.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/cntr_11_0_45469457c0a77b17.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/cntr_11_0_42baf13c51a596fc.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/bmg_72_24c7b3c86a194f2d.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_f868f1453b82f878.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_db33641187955446.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_d6efe1e2dc882263.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_d28d1829125f404d.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_c295182f8896cc0a.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_9d1909bdf37ce107.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_981da0afba8fd059.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_250f3887b741cf1f.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/block_memory_generator_spartan3a_7_3_02f439fc3cb5ba3a.ngc \
-pcores/rtephyseng_plbw_v1_01_c/netlist/addsb_11_0_50672071db3158cd.ngc \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/rtephyseng.vhd \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/block_memory_generator_spartan3a_7_3_250f3887b741cf1f.vhd \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/block_memory_generator_spartan3a_7_3_9d1909bdf37ce107.vhd \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/block_memory_generator_spartan3a_7_3_c295182f8896cc0a.vhd \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/block_memory_generator_spartan3a_7_3_981da0afba8fd059.vhd \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/rtephyseng_cw.vhd \
-pcores/rtephyseng_plbw_v1_01_c/hdl/vhdl/rtephyseng_plbw.vhd
+CORE_STATE_DEVELOPMENT_FILES = pcores/rtephyseng_plbw_v2_00_a/netlist/xlpersistentdff.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/mult_11_2_eb93f59d418f9076.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/mult_11_2_22d5399536538cd3.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/cntr_11_0_4c9ff32156a8ea89.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/cntr_11_0_45469457c0a77b17.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/cntr_11_0_42baf13c51a596fc.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/bmg_72_24c7b3c86a194f2d.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_f868f1453b82f878.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_e313c7705a5dff12.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_db33641187955446.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_d6efe1e2dc882263.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_d28d1829125f404d.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_cfd75b0e1a8678a1.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_c295182f8896cc0a.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_9d1909bdf37ce107.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_981da0afba8fd059.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_7994870d352f9bfe.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_4f504b505929e31b.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_250f3887b741cf1f.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_152a53a372d862c0.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/block_memory_generator_spartan3a_7_3_02f439fc3cb5ba3a.ngc \
+pcores/rtephyseng_plbw_v2_00_a/netlist/addsb_11_0_50672071db3158cd.ngc \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/rtephyseng.vhd \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/block_memory_generator_spartan3a_7_3_e313c7705a5dff12.vhd \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/block_memory_generator_spartan3a_7_3_250f3887b741cf1f.vhd \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/block_memory_generator_spartan3a_7_3_9d1909bdf37ce107.vhd \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/block_memory_generator_spartan3a_7_3_c295182f8896cc0a.vhd \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/rtephyseng_cw.vhd \
+pcores/rtephyseng_plbw_v2_00_a/hdl/vhdl/rtephyseng_plbw.vhd
 
 WRAPPER_NGC_FILES = implementation/MinSysEmbedProc_microblaze_0_wrapper.ngc \
 implementation/MinSysEmbedProc_mb_plb_wrapper.ngc \

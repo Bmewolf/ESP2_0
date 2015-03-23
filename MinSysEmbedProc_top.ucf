@@ -37,7 +37,7 @@ Net 	data_input_tl_0_SClock_out_pin	LOC=E1	|	IOSTANDARD = LVCMOS33;
 Net	data_input_tl_0_jfrc16_sel_pin<0>	LOC=B23	|	IOSTANDARD = LVCMOS33;
 Net	data_input_tl_0_jfrc16_sel_pin<1>	LOC=A18	|	IOSTANDARD = LVCMOS33;
 Net	data_input_tl_0_jfrc16_sel_pin<2>	LOC=C18	|	IOSTANDARD = LVCMOS33;
-Net	data_input_tl_0_jfrc16_sel_pin<3>	LOC=A22	|	IOSTANDARD = LVCMOS33;
+Net	data_input_tl_0_jfrc16_sel_pin<3>	LOC=B21	|	IOSTANDARD = LVCMOS33;
 
 Net	data_input_tl_0_jfrc_convert_pin		LOC=D8	|	IOSTANDARD = LVCMOS33;
 
@@ -53,6 +53,6 @@ Net	dtoa_converter_tl_0_dtoa_clock_pin<1>	LOC=AF23	|	IOSTANDARD = LVCMOS33;
 Net	dtoa_converter_tl_0_dtoa_select_pin<1>	LOC=AF19	|	IOSTANDARD = LVCMOS33;	
 Net	dtoa_converter_tl_0_dtoa_din_pin<1>		LOC=AE19	|	IOSTANDARD = LVCMOS33;
 
-//Net	espsysgen1_plbw_0_hs32_pin		LOC=A15	|	IOSTANDARD = LVCMOS33; 		// debug
-//Net	espsysgen1_plbw_0_control16_pin	LOC=F12	|	IOSTANDARD = LVCMOS33; // debug
 Net	rtephyseng_plbw_0_new_sample_available_pin LOC=F12 |	IOSTANDARD = LVCMOS33; // debug J35 pin 12
+Net 	data_input_tl_0_Buffer_0_Fill_pin LOC=A15 |	IOSTANDARD = LVCMOS33;
+Net   rtephyseng_plbw_0_control16_pin LOC=B15 |	IOSTANDARD = LVCMOS33;

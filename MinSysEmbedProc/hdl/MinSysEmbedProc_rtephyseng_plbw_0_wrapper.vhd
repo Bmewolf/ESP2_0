@@ -7,8 +7,8 @@ use IEEE.STD_LOGIC_1164.ALL;
 library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 
-library rtephyseng_plbw_v1_01_c;
-use rtephyseng_plbw_v1_01_c.all;
+library rtephyseng_plbw_v2_00_a;
+use rtephyseng_plbw_v2_00_a.all;
 
 entity MinSysEmbedProc_rtephyseng_plbw_0_wrapper is
   port (
@@ -64,9 +64,9 @@ architecture STRUCTURE of MinSysEmbedProc_rtephyseng_plbw_0_wrapper is
       C_MEMMAP_E1_FILTER_OUT_REG : integer;
       C_MEMMAP_E1_FILTER_OUT_REG_N_BITS : integer;
       C_MEMMAP_E1_FILTER_OUT_REG_BIN_PT : integer;
-      C_MEMMAP_ESP_CONTOL_REG : integer;
-      C_MEMMAP_ESP_CONTOL_REG_N_BITS : integer;
-      C_MEMMAP_ESP_CONTOL_REG_BIN_PT : integer;
+      C_MEMMAP_ESP_CONTROL_REG : integer;
+      C_MEMMAP_ESP_CONTROL_REG_N_BITS : integer;
+      C_MEMMAP_ESP_CONTROL_REG_BIN_PT : integer;
       C_MEMMAP_DTOA1_DATA_REGB : integer;
       C_MEMMAP_DTOA1_DATA_REGB_N_BITS : integer;
       C_MEMMAP_DTOA1_DATA_REGB_BIN_PT : integer;
@@ -158,9 +158,9 @@ begin
       C_MEMMAP_E1_FILTER_OUT_REG => 16#4008#,
       C_MEMMAP_E1_FILTER_OUT_REG_N_BITS => 16,
       C_MEMMAP_E1_FILTER_OUT_REG_BIN_PT => 15,
-      C_MEMMAP_ESP_CONTOL_REG => 16#4000#,
-      C_MEMMAP_ESP_CONTOL_REG_N_BITS => 16,
-      C_MEMMAP_ESP_CONTOL_REG_BIN_PT => 0,
+      C_MEMMAP_ESP_CONTROL_REG => 16#4000#,
+      C_MEMMAP_ESP_CONTROL_REG_N_BITS => 16,
+      C_MEMMAP_ESP_CONTROL_REG_BIN_PT => 0,
       C_MEMMAP_DTOA1_DATA_REGB => 16#4004#,
       C_MEMMAP_DTOA1_DATA_REGB_N_BITS => 16,
       C_MEMMAP_DTOA1_DATA_REGB_BIN_PT => 0,
@@ -174,7 +174,7 @@ begin
       C_MEMMAP_DTOA0_DATA_REGA_N_BITS => 16,
       C_MEMMAP_DTOA0_DATA_REGA_BIN_PT => 0,
       C_MEMMAP_E1_DECIMATION => 16#4014#,
-      C_MEMMAP_E1_DECIMATION_N_BITS => 16,
+      C_MEMMAP_E1_DECIMATION_N_BITS => 8,
       C_MEMMAP_E1_DECIMATION_BIN_PT => 0,
       C_MEMMAP_E1_FILTER_LENGTH => 16#4018#,
       C_MEMMAP_E1_FILTER_LENGTH_N_BITS => 16,

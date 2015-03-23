@@ -1,0 +1,3 @@
+[submodule "ESP2_0"]
+	path = ESP2_0
+	url = git@github.com:Bmewolf/ESP2_0.git

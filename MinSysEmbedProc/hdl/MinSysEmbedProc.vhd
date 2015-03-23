@@ -24,8 +24,10 @@ entity MinSysEmbedProc is
     data_input_tl_0_SClock_out_pin : out std_logic;
     data_input_tl_0_AD7982_convert_all_pin : out std_logic_vector(5 downto 0);
     data_input_tl_0_AD7982_DSI_all_pin : out std_logic_vector(5 downto 0);
-    rtephyseng_plbw_0_eng_reset_pin : out std_logic;
-    rtephyseng_plbw_0_new_sample_available_pin : out std_logic
+    data_input_tl_0_Buffer_0_Fill_pin : out std_logic;
+    rtephyseng_plbw_0_buffer_0_fill_pin : in std_logic;
+    rtephyseng_plbw_0_new_sample_available_pin : out std_logic;
+    rtephyseng_plbw_0_control16_pin : out std_logic
   );
 end MinSysEmbedProc;
 
@@ -1795,12 +1797,12 @@ architecture STRUCTURE of MinSysEmbedProc is
   signal net_vcc0 : std_logic;
   signal net_xps_uartlite_0_RX_pin : std_logic;
   signal proc_sys_reset_0_Peripheral_Reset : std_logic_vector(0 to 0);
+  signal rtephyseng_plbw_0_control16 : std_logic;
   signal rtephyseng_plbw_0_dtoa0_data_rega : std_logic_vector(15 downto 0);
   signal rtephyseng_plbw_0_dtoa0_data_regb : std_logic_vector(15 downto 0);
   signal rtephyseng_plbw_0_dtoa1_data_rega : std_logic_vector(15 downto 0);
   signal rtephyseng_plbw_0_dtoa1_data_regb : std_logic_vector(15 downto 0);
   signal rtephyseng_plbw_0_dtoa_start : std_logic_vector(1 downto 0);
-  signal rtephyseng_plbw_0_eng_reset : std_logic;
   signal rtephyseng_plbw_0_hs32 : std_logic;
   signal rtephyseng_plbw_0_new_sample_available : std_logic;
   signal sys_bus_reset : std_logic_vector(0 to 0);
@@ -1842,8 +1844,9 @@ begin
   data_input_tl_0_SClock_out_pin <= data_input_tl_0_SClock_out;
   data_input_tl_0_AD7982_convert_all_pin <= data_input_tl_0_AD7982_convert_all;
   data_input_tl_0_AD7982_DSI_all_pin <= data_input_tl_0_AD7982_DSI_all;
-  rtephyseng_plbw_0_eng_reset_pin <= rtephyseng_plbw_0_eng_reset;
+  data_input_tl_0_Buffer_0_Fill_pin <= data_input_tl_0_Buffer_0_Fill;
   rtephyseng_plbw_0_new_sample_available_pin <= rtephyseng_plbw_0_new_sample_available;
+  rtephyseng_plbw_0_control16_pin <= rtephyseng_plbw_0_control16;
   mb_plb_Sl_MRdErr(4 to 5) <= B"00";
   mb_plb_Sl_MWrErr(4 to 5) <= B"00";
   mb_plb_Sl_MBusy(4 to 5) <= B"00";
@@ -3422,13 +3425,13 @@ begin
       plb_wrdbus => mb_plb_PLB_wrDBus,
       spare_bit_1 => net_gnd0,
       splb_rst => mb_plb_SPLB_Rst(2),
-      control16 => open,
+      control16 => rtephyseng_plbw_0_control16,
       dtoa0_data_rega => rtephyseng_plbw_0_dtoa0_data_rega(15 downto 0),
       dtoa0_data_regb => rtephyseng_plbw_0_dtoa0_data_regb(15 downto 0),
       dtoa1_data_rega => rtephyseng_plbw_0_dtoa1_data_rega(15 downto 0),
       dtoa1_data_regb => rtephyseng_plbw_0_dtoa1_data_regb(15 downto 0),
       dtoa_start => rtephyseng_plbw_0_dtoa_start(1 downto 0),
-      eng_reset => rtephyseng_plbw_0_eng_reset,
+      eng_reset => open,
       hs32 => rtephyseng_plbw_0_hs32,
       new_sample_available => rtephyseng_plbw_0_new_sample_available,
       sl_addrack => mb_plb_Sl_addrAck(2),
